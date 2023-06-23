@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FontStyles {
-  FontStyles._();
   static TextStyle poppinsMedium({double? size, Color? color}) =>
       GoogleFonts.poppins(
         fontWeight: FontWeight.w500,
