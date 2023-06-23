@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PageIndicator extends StatefulWidget {
   final PageController controller;
@@ -45,8 +46,8 @@ class _PageIndicatorState extends State<PageIndicator> {
         return Opacity(
           opacity: opacity,
           child: Container(
-            width: 10,
-            height: 10,
+            width: 10.w,
+            height: 10.h,
             margin: const EdgeInsets.symmetric(horizontal: 4),
             decoration: BoxDecoration(
               shape: BoxShape.circle,

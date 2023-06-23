@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:task_management/common/routes/route_generator.dart';
+import 'package:task_management/common/routes/route_name.dart';
 import 'package:task_management/common/styles/app_colors.dart';
-import 'package:task_management/features/onboarding/pages/onboarding_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MainApp()));
@@ -24,7 +25,8 @@ class MainApp extends StatelessWidget {
             useMaterial3: true,
           ),
           debugShowCheckedModeBanner: false,
-          home: const OnboardingPage(),
+          initialRoute: RouteName.onboarding,
+          onGenerateRoute: RouteGenerator.generateRoute,
         );
       },
     );

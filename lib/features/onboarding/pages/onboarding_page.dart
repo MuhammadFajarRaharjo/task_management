@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_management/common/styles/app_colors.dart';
 import 'package:task_management/common/styles/font_styles.dart';
 import 'package:task_management/features/onboarding/pages/page_one.dart';
 import 'package:task_management/features/onboarding/widgets/page_indicator.dart';
 
-import 'page_three.dart';
+import '../../../common/widgets/width.spacer.dart';
 import 'page_two.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -41,60 +42,57 @@ class _OnboardingPageState extends State<OnboardingPage> {
             children: const [
               PageOne(),
               PageTwo(),
-              PageThree(),
             ],
           ),
 
-          //* Button
+          //* Bottom
           Align(
             alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                //* Next Button
-                IconButton(
-                  style: IconButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    visualDensity: VisualDensity.compact,
-                    padding: const EdgeInsets.all(0),
-                    minimumSize: const Size(12, 12),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //* Next Button
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          pageController.nextPage(
+                            duration: const Duration(milliseconds: 100),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 12,
+                              child: Icon(
+                                Icons.navigate_next,
+                                color: AppColors.bkDark,
+                              ),
+                            ),
+                            const WidthSpacer(size: 5),
+                            Text(
+                              'Next',
+                              style: FontStyles.poppinsMedium(
+                                  size: 16, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  onPressed: () {
-                    pageController.nextPage(
-                      duration: const Duration(milliseconds: 100),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  icon: const Icon(
-                    Icons.navigate_next,
-                    color: AppColors.bkDark,
-                  ),
-                ),
 
-                //* Indicator
-                PageIndicator(
-                  controller: pageController,
-                  numPages: 3,
-                ),
-
-                //* Skip Button
-                TextButton(
-                  onPressed: () {
-                    pageController.animateToPage(
-                      2,
-                      duration: const Duration(milliseconds: 100),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Text(
-                    'Skip',
-                    style: FontStyles.poppinsMedium(
-                      size: 16,
-                      color: Colors.white,
-                    ),
+                  //* Indicator
+                  PageIndicator(
+                    controller: pageController,
+                    numPages: 2,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
