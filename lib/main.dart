@@ -24,8 +24,9 @@ class MainApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColors.bkDark,
             useMaterial3: true,
           ),
+          themeMode: ThemeMode.dark,
           debugShowCheckedModeBanner: false,
-          initialRoute: RouteName.onboarding,
+          initialRoute: RouteName.home,
           onGenerateRoute: RouteGenerator.generateRoute,
         );
       },

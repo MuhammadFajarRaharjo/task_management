@@ -1,5 +1,9 @@
 class RouteName {
-  static const home = '/';
-  static const login = '/login';
   static const onboarding = '/onboarding';
+
+  static const home = '/';
+
+  // Auth route
+  static const login = '/login';
+  static const otp = '/otp';
 }

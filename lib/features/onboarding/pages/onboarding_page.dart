@@ -74,7 +74,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 color: AppColors.bkDark,
                               ),
                             ),
-                            const WidthSpacer(size: 5),
+                            WidthSpacer.from5(),
                             Text(
                               'Next',
                               style: FontStyles.poppinsMedium(

@@ -23,7 +23,7 @@ class PageTwo extends StatelessWidget {
             child: Image.asset(Assets.todoImage),
           ),
 
-          const HeightSpacer(size: 100),
+          HeightSpacer.from100(),
 
           //* Botton login
           CustomOutlineButton(

@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/common/styles/app_colors.dart';
 
 import '../constants/box_size.dart';
 import '../styles/font_styles.dart';
 
-class CustomOutlineButton extends StatelessWidget {
-  const CustomOutlineButton({
+class CustomFilledButton extends StatelessWidget {
+  const CustomFilledButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.width,
     this.height,
-    this.borderColor,
+    this.backgorundColor,
     this.textColor,
   });
 
   final VoidCallback onPressed;
   final String text;
   final double? width, height;
-  final Color? borderColor, textColor;
+  final Color? backgorundColor, textColor;
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
+    return FilledButton(
       onPressed: onPressed,
-      style: OutlinedButton.styleFrom(
+      style: FilledButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(BoxSize.radius12),
         ),
-        side: BorderSide(color: borderColor ?? Colors.white),
+        backgroundColor: backgorundColor ?? Colors.white,
         minimumSize: Size(
           width ?? BoxSize.proportionalScreenWidth(90),
           height ?? BoxSize.proportionalScreenHeight(8),
@@ -37,7 +38,7 @@ class CustomOutlineButton extends StatelessWidget {
         text,
         style: FontStyles.poppinsBold(
           size: 18,
-          color: textColor ?? Colors.white,
+          color: textColor ?? AppColors.bkDark,
         ),
         maxLines: 1,
         overflow: TextOverflow.fade,

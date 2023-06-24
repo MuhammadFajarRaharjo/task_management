@@ -23,7 +23,7 @@ class PageOne extends StatelessWidget {
             child: Image.asset(Assets.todoImage),
           ),
 
-          const HeightSpacer(size: 100),
+          HeightSpacer.from100(),
 
           //* Desctription
           Padding(
@@ -34,7 +34,7 @@ class PageOne extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const HeightSpacer(size: 10),
+          HeightSpacer.from10(),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.w),
             child: Text(
