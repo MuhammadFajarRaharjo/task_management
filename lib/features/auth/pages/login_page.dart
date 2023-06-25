@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:task_management/common/constants/assets.dart';
@@ -6,10 +7,23 @@ import 'package:task_management/common/routes/route_name.dart';
 import 'package:task_management/common/styles/app_colors.dart';
 import 'package:task_management/common/styles/font_styles.dart';
 import 'package:task_management/common/utils/country_botom_sheet.dart';
-import 'package:task_management/common/utils/providers.dart';
 import 'package:task_management/common/widgets/custom_filled_button.dart';
 import 'package:task_management/common/widgets/custom_text_form_field.dart';
 import 'package:task_management/common/widgets/height.spacer.dart';
+
+final _countryProvider = StateProvider<Country>((ref) {
+  return Country(
+      phoneCode: '62',
+      countryCode: 'ID',
+      e164Sc: 0,
+      geographic: true,
+      level: 1,
+      name: 'Indonesia',
+      example: 'Indonesia',
+      displayName: 'Indonesia',
+      displayNameNoCountryCode: 'ID',
+      e164Key: '');
+});
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -36,7 +50,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   @override
   Widget build(BuildContext context) {
     //* Identify country
-    final country = ref.watch(countryProvider);
+    final country = ref.watch(_countryProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -77,7 +91,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       showCountryBottmSheet(
                         context,
                         onSelect: (country) {
-                          ref.read(countryProvider.notifier).update(
+                          ref.read(_countryProvider.notifier).update(
                                 (state) => country,
                               );
                         },
