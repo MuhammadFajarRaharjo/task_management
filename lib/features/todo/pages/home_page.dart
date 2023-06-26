@@ -83,9 +83,17 @@ class _HomePageState extends ConsumerState<HomePage>
               controller: tabController,
               children: [
                 //* CONTAIN 1
-                const Column(
+                Column(
                   children: [
-                    TodoTile(),
+                    TodoTile(
+                      title: 'Today\'s task',
+                      subtitle: 'Task untuk belajar',
+                      timeStart: '13.00',
+                      timeEnd: '13.01',
+                      switchValue: false,
+                      onDelete: () {},
+                      onSwitchChanged: (value) {},
+                    ),
                   ],
                 ),
                 //* CONTAIN 2
@@ -116,7 +124,7 @@ class _HomePageState extends ConsumerState<HomePage>
     );
   }
 
-  ///* CUSTOM APP BAR FOR TODO
+  ///* CUSTOM APP BAR
   AppBar _todoAppBar() {
     return AppBar(
       automaticallyImplyLeading: false,
