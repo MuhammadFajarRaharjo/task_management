@@ -87,7 +87,7 @@ class _HomePageState extends ConsumerState<HomePage>
                   children: [
                     TodoTile(
                       title: 'Today\'s task',
-                      subtitle: 'Task untuk belajar',
+                      subtitle: 'Task Hari ini yaitu belajar',
                       timeStart: '13.00',
                       timeEnd: '13.01',
                       switchValue: false,

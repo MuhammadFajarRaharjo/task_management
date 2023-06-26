@@ -50,7 +50,7 @@ class CustomExpansionTile extends ConsumerWidget {
         ),
         title: Text(
           title,
-          style: FontStyles.poppinsBold(size: 24, color: Colors.white),
+          style: FontStyles.poppinsBold(size: 22, color: Colors.white),
         ),
         subtitle: Text(
           subtitle,
