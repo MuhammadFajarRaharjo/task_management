@@ -35,7 +35,6 @@ class TodoTile extends ConsumerWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(BoxSize.radius12),
       ),
-      dense: false,
       visualDensity: const VisualDensity(
         vertical: VisualDensity.maximumDensity,
       ),
@@ -58,6 +57,7 @@ class TodoTile extends ConsumerWidget {
         ],
       ),
       subtitle: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           //* BADGE TIME
           Container(

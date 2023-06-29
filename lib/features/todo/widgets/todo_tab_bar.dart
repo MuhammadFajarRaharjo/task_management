@@ -18,19 +18,15 @@ class TodoTabBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(BoxSize.radius12),
         color: Colors.white,
       ),
-      margin: EdgeInsets.symmetric(horizontal: BoxSize.padding20FW),
       child: TabBar(
         splashBorderRadius: BorderRadius.circular(BoxSize.radius12),
         controller: tabController,
-        labelStyle: FontStyles.poppinsBold(
-          size: 16,
-          color: AppColors.bkDark,
-        ),
+        labelStyle: FontStyles.poppinsBold(size: 16),
+        unselectedLabelColor: AppColors.bkDark,
         dividerColor: Colors.transparent,
         automaticIndicatorColorAdjustment: false,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(BoxSize.radius12),
-          // border: Border.all(color: AppColors.bkDark),
           color: AppColors.greyLight,
         ),
         indicatorSize: TabBarIndicatorSize.tab,

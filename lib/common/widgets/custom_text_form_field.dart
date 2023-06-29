@@ -13,10 +13,12 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onChanged,
+    this.hintColor,
   });
 
   final Widget? prefixIcon, suffixIcon;
   final String? hintText;
+  final Color? hintColor;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final void Function(String)? onChanged;
@@ -44,7 +46,7 @@ class CustomTextFormField extends StatelessWidget {
         hintText: hintText,
         hintStyle: FontStyles.poppinsSemiBold(
           size: 16,
-          color: AppColors.bkDark,
+          color: hintColor ?? AppColors.bkDark,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(BoxSize.radius9),

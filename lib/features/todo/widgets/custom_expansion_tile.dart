@@ -5,7 +5,7 @@ import 'package:task_management/common/constants/box_size.dart';
 import 'package:task_management/common/styles/app_colors.dart';
 import 'package:task_management/common/styles/font_styles.dart';
 
-final _expandProvider = StateProvider<bool>((ref) => false);
+import '../controller/expansion/custom_expansion_tile_provider.dart';
 
 class CustomExpansionTile extends ConsumerWidget {
   const CustomExpansionTile({
@@ -22,12 +22,14 @@ class CustomExpansionTile extends ConsumerWidget {
   final EdgeInsetsGeometry? margin;
   @override
   Widget build(BuildContext context, ref) {
-    bool isExpand = ref.watch(_expandProvider);
+    bool isExpand = ref.watch(customExpantsionTileStateProvider(key!));
     return Padding(
       padding: margin ?? EdgeInsets.zero,
       child: ExpansionTile(
         onExpansionChanged: (value) {
-          ref.read(_expandProvider.notifier).update((state) => value);
+          ref
+              .read(customExpantsionTileStateProvider(key!).notifier)
+              .toogle(value);
         },
         collapsedBackgroundColor: AppColors.bkLight,
         backgroundColor: AppColors.bkLight,

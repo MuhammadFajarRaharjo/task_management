@@ -3,6 +3,7 @@ import 'package:task_management/common/routes/route_name.dart';
 import 'package:task_management/features/auth/pages/login_page.dart';
 import 'package:task_management/features/auth/pages/otp_page.dart';
 import 'package:task_management/features/onboarding/pages/onboarding_page.dart';
+import 'package:task_management/features/todo/pages/add_todo_page.dart';
 import 'package:task_management/features/todo/pages/home_page.dart';
 
 class RouteGenerator {
@@ -20,9 +21,14 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const LoginPage(),
         );
+
       case RouteName.otp:
         return MaterialPageRoute(
           builder: (_) => const OtpPage(),
+        );
+      case RouteName.addTodo:
+        return MaterialPageRoute(
+          builder: (_) => const AddTodoPage(),
         );
       default:
         return _errorRoute();
